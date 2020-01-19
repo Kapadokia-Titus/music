@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:ignore="ContentDescription"
+    tools:context=".MainActivity">
+
+<!--    scroll view-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--        base linear layout-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--            home activity imageView-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:scaleType="fitXY"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/musicbg">
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="40dp"
+                    android:background="@drawable/ic_skip_previous"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <Button
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:onClick="playButton"
+                        android:id="@+id/play_button"
+                        android:background="@drawable/ic_play"/>
+                    <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:onClick="pauseButton"
+                    android:visibility="gone"
+                        android:id="@+id/pause_button"
+                    android:background="@drawable/ic_pause"/>
+                </RelativeLayout>
+
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="40dp"
+                    android:background="@drawable/ic_skip_next"/>
+
+
+            </LinearLayout>
+
+            <SeekBar
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:onClick="seekBar"
+                android:layout_height="40dp"
+                android:max="10"
+                android:progress="0" />
+
+
+            <!--
+            ===================================================================================
+            -->
+            <!-- cardView 1
+             - has an horizontal linear layout
+            - it is responsible for handling the name and profile button
+            -the button has an oval shape
+
+        -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="5dp">
+
+                <LinearLayout style="@style/horizontalLayout"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_music_note_black_24dp"
+                        android:padding="5dp"
+                        android:layout_height="match_parent"/>
+
+                    <TextView
+                        style="@style/textViewHeader"
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:text="Asumpta" />
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:elevation="10dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_person"
+                        android:background="@drawable/oval"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <!--
+            ===================================================================================
+            -->
+
+             - has an horizontal linear layout
+            - it is responsible for handling the followers, following and view
+
+
+
+        -->
+
+            <LinearLayout
+                style="@style/horizontalLayout"
+                android:paddingStart="20dp">
+
+                <!-- vertical linear layout for followers-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/followers_number"
+                        android:text="2437"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textStyle="bold"
+                        android:text="Followers"/>
+
+                </LinearLayout>
+
+                <!-- vertical linear layout for following-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/following_number"
+                        android:text="224"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textStyle="bold"
+                        android:text="Following"/>
+
+                </LinearLayout>
+
+                <!-- vertical linear layout for views-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/views_number"
+                        android:text="2437"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textStyle="bold"
+                        android:text="Views"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!--
+            ===================================================================================
+            -->
+
+
+            <!-- cardView 3
+          - has an horizontal linear layout
+         - it is responsible for handling the Playlist section
+
+
+         -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="5dp">
+
+                    <LinearLayout
+                        style="@style/horizontalLayout">
+
+                        <TextView
+                            style="@style/textViewHeader"
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:text="Playlist"
+                            android:paddingStart="16sp"/>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:text="More"
+                                android:textAlignment="center"
+                                android:textSize="16sp"
+                                android:layout_height="wrap_content"/>
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+
+                                android:src="@drawable/ic_more_horiz_black_24dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+                <!--
+             ===================================================================================
+             -->
+
+
+                <!-- cardView 4
+              - has an horizontal linear layout
+             - it is responsible for horizontal playlist group
+
+
+             -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:elevation="5dp">
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/horizontal_scrollView">
+
+                        <LinearLayout
+                            style="@style/horizontalLayout"
+                            android:id="@+id/horizontal_layout"
+                            android:padding="10dp">
+
+                            <ListView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/playlist_items"/>
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+                <!--
+               ===================================================================================
+               -->
+
+
+                <!-- cardView 5
+              - has an horizontal linear layout
+             - it is responsible for handling the Artist section
+
+
+             -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:elevation="5dp">
+
+
+                    <LinearLayout
+                        style="@style/horizontalLayout">
+
+                        <TextView
+                            style="@style/textViewHeader"
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:text="Artist"
+                            android:paddingStart="16sp"/>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:text="More"
+                                android:textAlignment="center"
+                                android:textSize="16sp"
+                                android:layout_height="wrap_content"/>
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+
+                                android:src="@drawable/ic_more_horiz_black_24dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+                <!--
+         ===================================================================================
+         -->
+
+
+                <!-- cardView 6
+              - has an horizontal linear layout
+             - it is responsible for horizontal playlist group
+
+
+             -->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:elevation="5dp">
+
+                    <LinearLayout
+                        style="@style/horizontalLayout"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_height="120dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/ngoma3"
+                                android:scaleType="fitXY"
+                                android:id="@+id/artist_one"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="whitney huston"
+                                android:textAlignment="center"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="5dp"
+                            android:layout_height="120dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/ngoma1"
+                                android:scaleType="fitXY"
+                                android:id="@+id/artist_two"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="kaligraph"
+                                android:textAlignment="center"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="5dp"
+                            android:layout_height="120dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/ngoma2"
+                                android:scaleType="fitXY"
+                                android:id="@+id/artist_three"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="pekejeng"
+                                android:textAlignment="center"/>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
+
+<!--    recent post section, recent updates will be appearing here  -->
+
+            <TextView
+                style="@style/textViewHeader"
+                android:layout_width="match_parent"
+                android:layout_weight="4"
+                android:text="Recent posts"
+                android:paddingStart="16sp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"
+                android:layout_margin="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/ngoma2"
+                            android:scaleType="fitXY"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Asumpta"
+                                android:id="@+id/recent_post_name"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="8:20 am"
+                                android:id="@+id/recent_post_time"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recent_post_content"
+                        android:layout_marginStart="5sp"
+                        android:layout_marginTop="10dp"
+                        android:text="People have requested the event organisers not to invite other artists before we have listened to all songs"/>
+
+<!--                  love  listen and buy section-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10sp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_favorite_border"
+                            android:onClick="favouriteMusic"
+                            android:id="@+id/love_image"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="0"
+                             android:id="@+id/love_text"/>
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="35dp"
+                            android:src="@drawable/listened"
+                            android:id="@+id/listened_image"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="253"
+                            android:id="@+id/listened_text"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="35dp"
+                            android:src="@drawable/ic_shop"
+                            android:id="@+id/buy_image"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="253"
+                            android:id="@+id/buy_text"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
